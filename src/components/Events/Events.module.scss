@@ -1,0 +1,30 @@
+@import "../../sass/mixins";
+
+.main{
+    margin: 15vh 0;
+    padding: 0 1rem;
+    position: relative;
+
+    @include respond(tab-port){
+        display: flex;
+        flex-direction: row;
+    }
+
+    &_adder{
+        @include shadow;
+        position: fixed;
+        bottom: 5%;
+        width: 70%;
+        left: 50%;
+        transform: translateX(-50%);
+
+        @include respond(tab-port){
+            left: 79%;
+            bottom: 2.5%;
+            transform: none;
+            width: 20%;
+            font-size: 2rem;
+            padding: 3rem 0;
+        }
+    }
+}

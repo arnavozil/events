@@ -1,0 +1,71 @@
+@import "../../sass/mixins";
+@import "../../sass/variables";
+
+.textinput{
+    width: 100%;
+    position: relative;
+
+    &_label{
+        font-size: 1.5rem;
+    }
+
+    &_input{
+        width: 100%;
+        @include shadow;
+        font-size: 2rem;
+        border-radius: .5rem;
+        padding: 1.5rem;
+        border: none;
+        font-family: "Merriweather", sans-serif;
+
+        &:focus{
+            outline: none;
+        }
+    }
+}
+
+
+.arrow{
+    position: absolute;
+    cursor: pointer;
+    right: 0;
+    top: 0;
+    width: 17.5%;
+    height: 100%;
+    background-color: $gray;
+    border-radius: 0 .5rem .5rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    color: $white;
+
+    @include respond(tab-port){
+        width: 12%;   
+    }
+}
+
+.dropdown{
+    position: absolute;
+    width: 100%;
+    bottom: -.5rem;
+    transform: translateY(100%);
+    border-radius: .5rem;
+    display: flex;
+    flex-direction: column;
+    @include shadow;
+    background-color: $white;
+    max-height: 50vh;
+    overflow: scroll;
+    z-index: 2;
+
+    &_element{
+        font-size: 1.5rem;
+        padding: 1rem .75rem;
+
+        &:nth-child(even){
+            background-color: $lighter;
+            border-radius: .5rem;
+        }
+    }
+}

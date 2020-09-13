@@ -1,0 +1,95 @@
+@import "../../sass/mixins";
+@import "../../sass/variables";
+
+.main{
+    width: 100%;
+    min-height: 100vh;
+    padding: 2rem 0;
+    background-size: cover;
+    background-image: url('../../assets/login.png');
+
+    @include respond(tab-port){
+        background: $white;
+        display: flex;
+        flex-direction: row;
+        padding: 0;   
+    }
+
+    &_image{
+        display: none;
+
+        @include respond(tab-port){
+            display: flex;
+            height: 100vh;
+            max-height: 100vh;
+            flex: 1;
+        }
+
+        &_img{
+            width: 100%;
+            height: clamp(100%, 100%, 100%);
+        }
+    }
+
+    &_actions{
+        flex: 1;
+        height: 100%;
+
+        @include respond(tab-port){
+            margin-top: 2rem;
+            border-left: .1rem solid $lighter;
+        }
+    }
+
+    &_nav{
+        width: 70%;
+        background-color: $white;
+        @include shadow;
+        padding: 1rem 0;
+        margin: auto;
+        border-radius: 1rem;
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        cursor: pointer;
+
+        &_item{
+            flex: 1;
+            font-family: "Merriweather Sans", sans-serif;
+            z-index: 1;
+            text-align: center;
+            font-size: 2.5rem;
+
+        }
+
+        &_back{
+            transition: all .5s ease;
+            position: absolute;
+            width: 48%;
+            top: 50%;
+            left: 1%;
+            border-radius: 1rem;
+            transform: translateY(-50%);
+            background-color: $lightest;
+            height: 80%;
+        }
+    }
+
+    &_logo{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 5%;
+        width: 30%;
+        margin: 3rem auto;
+
+        @include respond(tab-port){
+            width: 20%;   
+        }
+
+        &_img{
+            height: 100%;
+            width: 100%;
+        }
+    }
+}

@@ -1,0 +1,134 @@
+@import "../../sass/variables";
+@import "../../sass/mixins";
+@import "../../sass/animations";
+
+.main{
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: 2;
+    background-color: rgba($white, .6);
+
+    &_content{
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        height: 90%;
+        width: 90%;
+        background-color: $white;
+        border-radius: .5rem;
+        overflow-y: scroll;
+        @include shadow;
+        padding: 0 1rem;
+
+        @include respond(tab-port){
+            width: 40%;
+        }
+
+        &_area{
+            padding: 1rem;
+
+            &_input{
+                font-size: 1.6rem;
+            }
+
+            &_container{
+                margin-bottom: 2rem;
+            }
+
+            &_calendar{
+                width: 100%;
+                margin: .25rem 0;
+            }
+
+            &_text{
+                font-size: 1.5rem;
+                margin-bottom: .25rem;
+            }
+        }
+
+        &_slots{
+            width: 100%;
+            display: grid;
+            grid-gap: .25rem;
+            margin-top: .5rem;
+            grid-template-columns: repeat(3, 33%);
+
+            &_item{
+                padding: .75rem 0;
+                border-radius: .25rem;
+                font-size: 1.35rem;
+                text-align: center;
+                border: .1rem solid $lighter;
+                color: $lighter;
+                cursor: not-allowed;
+                transition: all .5s ease;
+            }
+        }
+
+        &_tray{
+            position: sticky;
+            bottom: 0;
+            margin: 0 -2rem;
+            @include shadow;
+            left: 0;
+            background-color: $white;
+            width: 100%;
+            padding: 1rem;
+            display: flex;
+            flex-direction: row;
+
+            &_voidVertical{
+                width: 50%;
+            }
+
+        }
+
+        &_message{
+            position: absolute;
+            bottom: 15%;
+            display: flex;
+            left: 50%;
+            width: fit-content;
+            transform: translateX(-50%);
+            background-color: $white;
+            padding: .5rem;
+            color: $crimson;
+            border-radius: .25rem;
+            border: .1rem solid $crimson;
+            text-align-last: center;
+            font-size: 1.4rem;
+        }
+    }
+}
+
+.shrink{
+    animation: shrink .5s ease-out forwards;
+}
+
+.expand{
+    animation: expand .5s ease-in forwards;
+}
+
+
+.selected{
+    background: $primary;
+    color: white !important;
+    font-weight: 600;    
+}
+
+
+.shimmerevent{
+    @include shimmer;
+    height: 10vh;
+    width: 100%;
+    border-radius: .5rem;
+    margin-bottom: 2rem;
+
+    &_big{
+        height: 50vh;
+    }
+}

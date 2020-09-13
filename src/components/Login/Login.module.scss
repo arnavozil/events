@@ -1,0 +1,25 @@
+@import "../../sass/variables";
+
+.main{
+    width: 90%;
+    margin: auto;
+
+    & > *{
+        margin-bottom: 4rem;
+    }
+
+    &_buttonholder{
+        display: flex;
+        flex-direction: column;
+
+        & > *{
+            margin-bottom: 1rem;
+        }
+    }
+
+    &_warning{
+        font-size: 1.5rem;
+        color: $crimson;
+        text-align: center;
+    }
+}

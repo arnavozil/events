@@ -1,0 +1,56 @@
+@import "../../sass/mixins";
+@import "../../sass/variables";
+
+.main{
+    margin-top: 4rem;
+
+    @include respond(tab-port){
+        width: 50%;
+        margin-top: 0;       
+    }
+
+    &_sub{
+        font-weight: 500;
+        color: $gray;
+        font-size: 1.25rem;
+
+        @include respond(tab-port){
+            font-size: 1.5rem;
+        }
+    }
+
+    &_calendar{
+        background-color: $white;
+        @include shadow;
+        width: 100%;
+        border: none;
+
+        &_tile{
+            @include shadow;
+            height: 5rem;
+            display: flex;
+            flex-direction: row;
+            font-size: 1.5rem;
+            justify-content: center;
+            align-items: center;
+            font-family: "Montserrat", sans-serif;
+            border: .1rem solid $lightest;
+            border-radius: .5rem;
+            background-color: $white;
+
+            &_dot{
+                height: 1.5rem;
+                width: 1.5rem;
+                margin-left: .5rem;
+                border-radius: 50%;
+            }
+        }
+    }
+}
+
+.shimmercalendar{
+    @include shimmer;
+    height: 40vh;
+    width: 100%;
+    border-radius: .5rem;
+}
