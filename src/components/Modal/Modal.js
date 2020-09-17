@@ -3,7 +3,7 @@ import DatePicker from 'react-date-picker';
 import { FcCalendar } from 'react-icons/fc';
 
 import PrimaryButton from '../../widgets/Button/Button';
-import { findDate } from '../../utils/index';
+import { findDate, findTime, isTimeColliding } from '../../utils/index';
 import PrimaryHeading from '../../widgets/Heading/Heading';
 import TextInput, { DropDown } from '../../widgets/Input/Input';
 import s from './Modal.module.scss';
@@ -53,15 +53,23 @@ const Modal = ({
         toggleOptions(false);
     };
 
-    const validateSlot = (currDate, events) => {
+    const validateSlot = (currDate, events, currTime) => {
         const date = findDate(currDate);
         
         if(!events?.length){
             return;
         }
 
-        return events.some(el => {
+        const existingDays = events.filter(el => {
             return (findDate(el.start) === date || findDate(el.end) === date);
+        });
+
+        return existingDays.some(day => {
+
+            const startTime = findTime(day.start);
+            const endTime = findTime(day.end);
+
+            return isTimeColliding(currTime, `${startTime}-${endTime}`);
         });
     };
 
@@ -97,8 +105,8 @@ const Modal = ({
             const start = hour;
             const end = index % 2 === 0 ? hour : hour + 1;
             const suffix = index % 2 === 0 ? [':00', ':30'] : [':30', ':00'];
-            const conflicts = validateSlot(currDate, events);
             const timeString = `${start}${suffix[0]} - ${end}${suffix[1]}`;
+            const conflicts = validateSlot(currDate, events, timeString);
             const classes = timeString === currentTime ? s.selected : '';
 
                 return (

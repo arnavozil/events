@@ -86,7 +86,6 @@ const Events = ({
         const [startTime, endTime] = time.split(' - ');
         const startDate = buildDate(date, startTime);
         const endDate = buildDate(date, endTime);
-        console.log(startDate);
 
         dispatch(createUserEvent({
             token, name, event_type: eventType,

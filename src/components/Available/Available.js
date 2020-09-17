@@ -34,11 +34,11 @@ const Available = ({
                     </span>
                     <div className = {s.main_eventgrid_event_time}>
                         <span className = {s.main_eventgrid_event_time_text}>
-                            {moment(start).format('DD/MM/YYYY hh:mm')}
+                            {moment(start).format('DD/MM/YYYY hh:mm A')}
                         </span>
                         <span className = {s.main_eventgrid_event_time_dash}>-</span>
                         <span className = {s.main_eventgrid_event_time_text}>
-                            {moment(end).format('DD/MM/YYYY hh:mm')}
+                            {moment(end).format('DD/MM/YYYY hh:mm A')}
                         </span>
                     </div>
                     <span 
